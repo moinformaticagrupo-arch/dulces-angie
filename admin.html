@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f8dce8">
+  <title>Administración | Dulces Angie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-bg" aria-hidden="true">♡　🍬　♡　🍭　♡</div>
+  <header class="admin-header"><a href="index.html" class="brand"><span class="brand-mark">A</span><span><strong>Dulces Angie</strong><small>Panel privado</small></span></a><a class="back-link" href="index.html">← Volver a la tienda</a></header>
+  <main class="admin-main">
+    <section class="login-card" id="loginView">
+      <div class="login-icon">♡</div><p class="eyebrow">ACCESO EXCLUSIVO</p><h1>Hola, Angie</h1><p class="muted">Iniciá sesión para administrar productos y precios de tu tienda.</p>
+      <form id="loginForm"><label for="email">Correo electrónico</label><input id="email" type="email" autocomplete="username" required value="admin@gmail.com" placeholder="admin@gmail.com"><label for="password">Contraseña</label><input id="password" type="password" autocomplete="current-password" required placeholder="Tu contraseña"><button class="primary-btn" type="submit">Ingresar al panel</button><p class="form-message" id="loginMessage" role="status"></p></form>
+      <p class="security-note">🔒 Acceso protegido. Las modificaciones solo se permiten a la cuenta autorizada.</p>
+    </section>
+    <section class="dashboard hidden" id="dashboardView">
+      <div class="dashboard-heading"><div><p class="eyebrow">TU NEGOCIO, A TU MANERA</p><h1>Administrar productos</h1><p class="muted">Los cambios se publican en la tienda para todos los visitantes.</p></div><button class="outline-btn" id="logoutBtn" type="button">Cerrar sesión</button></div>
+      <div class="stats-row"><div class="stat-card"><span>Productos publicados</span><strong id="productCount">0</strong></div><div class="stat-card"><span>Precios configurados</span><strong id="pricedCount">0</strong></div></div>
+      <section class="editor-card"><div class="editor-heading"><div><p class="eyebrow">CATÁLOGO</p><h2 id="formTitle">Agregar un producto</h2></div><span class="editor-heart">✦</span></div>
+        <form id="productForm" class="product-form"><input type="hidden" id="productId"><div class="form-grid"><div class="field"><label for="productName">Nombre *</label><input id="productName" maxlength="100" required placeholder="Ej. Caja sorpresa"></div><div class="field"><label for="productPrice">Precio (ARS)</label><input id="productPrice" type="number" min="0" step="1" placeholder="Ej. 15000"><small>Dejalo vacío si querés que consulten el precio.</small></div><div class="field full"><label for="productDescription">Descripción</label><textarea id="productDescription" rows="3" maxlength="500" placeholder="Contá qué incluye este regalo..."></textarea></div><div class="field"><label for="productBadge">Etiqueta (opcional)</label><input id="productBadge" maxlength="30" placeholder="Favorito, Nuevo..."></div><div class="field"><label for="productImage">Foto del producto</label><input id="productImage" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG o WebP. Máximo 5 MB.</small><div id="currentImage" class="current-image"></div></div><div class="field full checkbox-field"><label><input id="productActive" type="checkbox" checked> Publicar producto en la tienda</label></div></div><div class="form-actions"><button class="primary-btn" id="saveProductBtn" type="submit">Guardar y publicar</button><button class="outline-btn hidden" id="cancelEditBtn" type="button">Cancelar edición</button><p class="form-message" id="productMessage" role="status"></p></div></form>
+      </section>
+      <section class="list-card"><div class="list-heading"><div><p class="eyebrow">TU CATÁLOGO</p><h2>Productos existentes</h2></div><button class="outline-btn" id="refreshBtn" type="button">↻ Actualizar</button></div><div id="adminProductList" class="admin-product-list"><p class="muted">Cargando productos…</p></div></section>
+      <p class="dashboard-footnote">💗 Tip: si desmarcás “Publicar producto”, el producto se oculta de la tienda sin borrarlo.</p>
+    </section>
+    <section class="setup-warning hidden" id="setupWarning"><h1>Falta conectar Supabase</h1><p>Completá la URL y la clave pública en <code>supabase-config.js</code> y ejecutá las instrucciones de <code>supabase-setup.sql</code>. Después creá el usuario de Angie desde el panel de Supabase.</p><a class="primary-btn as-link" href="index.html">Volver a la tienda</a></section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="admin.js"></script>
+</body></html>
