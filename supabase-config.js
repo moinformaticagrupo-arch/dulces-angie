@@ -1,7 +1,6 @@
-// CONFIGURACIÓN PÚBLICA DE SUPABASE
-// Completá con Project URL y anon/public key desde Supabase > Project Settings > API.
-// Nunca pongas aquí la service_role key.
+
+/* CONFIGURACIÓN PÚBLICA DE SUPABASE */
 window.DULCES_ANGIE_SUPABASE = {
-  url: "https://TU-PROYECTO.supabase.co",
-  anonKey: "TU-ANON-KEY"
+  url: "https://gzkpaiommlkfxrbgnkoy.supabase.co",
+  anonKey: "PEGÁ_ACÁ_TU_CLAVE_sb_publishable"
 };
