@@ -1,6 +1,7 @@
 
-/* CONFIGURACIÓN PÚBLICA DE SUPABASE */
+/* CONFIGURACIÓN PÚBLICA DE SUPABASE - DULCES ANGIE */
+
 window.DULCES_ANGIE_SUPABASE = {
   url: "https://gzkpaiommlkfxrbgnkoy.supabase.co",
-  anonKey: "PEGÁ_ACÁ_TU_CLAVE_sb_publishable"
+  anonKey: "sb_publishable__0V7DP3h-r3MNWCLWEPTGg_5MCVr5Ic"
 };
