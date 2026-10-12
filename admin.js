@@ -1,1 +1,733 @@
- :root{--pink:#d979a5;--pink-dark:#9e3e70;--pink-soft:#fff0f6;--line:#f0d8e3;--ink:#432638;--muted:#927787;--white:#fff;--shadow:0 20px 60px rgba(111,44,77,.11)}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(145deg,#fff8fb,#fff0f6 60%,#fbe4ef);font-family:'DM Sans',sans-serif;color:var(--ink)}.admin-bg{position:fixed;inset:0;pointer-events:none;opacity:.12;font-size:clamp(30px,6vw,75px);word-spacing:35px;line-height:2.3;overflow:hidden;z-index:-1}.admin-header{display:flex;align-items:center;justify-content:space-between;padding:20px clamp(18px,5vw,70px);border-bottom:1px solid rgba(230,183,204,.6);background:rgba(255,255,255,.68);backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}.brand-mark{display:grid;place-items:center;width:45px;height:45px;border-radius:15px;background:linear-gradient(145deg,#f5b9d2,#d979a5);color:white;font-family:'Playfair Display',serif;font-size:28px;box-shadow:0 7px 18px #d979a544}.brand strong,.brand small{display:block}.brand strong{font-family:'Playfair Display',serif;font-size:20px}.brand small{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}.back-link{color:var(--pink-dark);font-size:13px;font-weight:700;text-decoration:none}.admin-main{width:min(1100px,calc(100% - 32px));margin:46px auto 70px}.login-card,.editor-card,.list-card,.stat-card,.setup-warning{background:rgba(255,255,255,.92);border:1px solid white;border-radius:26px;box-shadow:var(--shadow)}.login-card{width:min(460px,100%);margin:40px auto;padding:36px}.login-icon{width:58px;height:58px;border-radius:20px;display:grid;place-items:center;background:var(--pink-soft);color:var(--pink-dark);font-size:32px;margin-bottom:20px}.eyebrow{color:var(--pink-dark);font-size:10px;font-weight:800;letter-spacing:2px;margin:0 0 9px}.login-card h1,.dashboard h1,.setup-warning h1{font:600 35px 'Playfair Display',serif;margin:0 0 10px}.muted{color:var(--muted);line-height:1.65;font-size:13px}.login-card form{display:grid;gap:9px;margin-top:25px}.login-card label,.field>label{font-size:12px;font-weight:700;margin-top:6px}.input, input,textarea{font:inherit}.login-card input,.field input:not([type=checkbox]),.field textarea{width:100%;border:1px solid var(--line);background:#fffafd;border-radius:12px;padding:13px 14px;outline:none;color:var(--ink);font-size:13px}.login-card input:focus,.field input:focus,.field textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px #d979a51c}.primary-btn,.outline-btn{border:0;border-radius:12px;padding:13px 18px;font:700 12px 'DM Sans',sans-serif;cursor:pointer;transition:.2s}.primary-btn{background:linear-gradient(135deg,#d979a5,#b95183);color:white;box-shadow:0 9px 20px #c15e8d35}.primary-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px #c15e8d44}.login-card .primary-btn{margin-top:10px}.outline-btn{border:1px solid var(--line);background:white;color:var(--pink-dark)}.outline-btn:hover{background:var(--pink-soft)}.form-message{font-size:12px;color:var(--pink-dark);min-height:16px;margin:3px 0}.security-note{font-size:11px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:16px;margin-top:20px}.hidden{display:none!important}.dashboard-heading,.list-heading,.editor-heading{display:flex;justify-content:space-between;align-items:center;gap:20px}.dashboard-heading{margin-bottom:25px}.dashboard-heading h1{font-size:clamp(30px,4vw,42px)}.stats-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:22px}.stat-card{padding:20px 24px}.stat-card span,.stat-card strong{display:block}.stat-card span{font-size:12px;color:var(--muted)}.stat-card strong{font:600 30px 'Playfair Display',serif;color:var(--pink-dark);margin-top:5px}.editor-card,.list-card{padding:clamp(20px,3vw,32px);margin-bottom:22px}.editor-heading{margin-bottom:22px}.editor-heading h2,.list-heading h2{font:600 25px 'Playfair Display',serif;margin:0}.editor-heart{font-size:32px;color:var(--pink)}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.field{display:flex;flex-direction:column;gap:8px;min-width:0}.field.full{grid-column:1/-1}.field small{font-size:10px;color:var(--muted)}.field input[type=file]{font-size:11px;padding:10px}.checkbox-field label{display:flex;align-items:center;gap:10px}.checkbox-field input{accent-color:var(--pink-dark)}.form-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}.form-actions .form-message{flex-basis:100%}.current-image img{max-height:90px;max-width:130px;object-fit:cover;border-radius:10px}.admin-product-list{margin-top:22px;display:grid;gap:12px}.admin-product{display:grid;grid-template-columns:70px minmax(0,1fr) auto;align-items:center;gap:15px;padding:13px;border:1px solid var(--line);border-radius:16px;background:#fffafd}.admin-product img,.admin-product .mini-placeholder{width:70px;height:70px;object-fit:cover;border-radius:12px;background:var(--pink-soft);display:grid;place-items:center;font-size:26px}.admin-product h3{font-size:14px;margin:0 0 5px}.admin-product p{font-size:11px;color:var(--muted);margin:0 0 5px}.admin-product .item-price{font-size:12px;font-weight:800;color:var(--pink-dark)}.item-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.item-actions button{font-size:10px;padding:9px 11px}.status-pill{display:inline-block;font-size:9px;border-radius:999px;padding:4px 7px;background:#e9f7ed;color:#287746;margin-left:6px}.status-pill.off{background:#f7e9ee;color:#9e3e70}.dashboard-footnote{font-size:11px;color:var(--muted);text-align:center}.setup-warning{padding:32px;max-width:650px;margin:40px auto;line-height:1.7}.as-link{display:inline-block;text-decoration:none;margin-top:12px}.empty-list{padding:24px;text-align:center;color:var(--muted);font-size:13px}@media(max-width:650px){.admin-header{padding:16px}.brand strong{font-size:17px}.back-link{font-size:11px}.admin-main{margin-top:25px}.login-card{padding:25px}.dashboard-heading{align-items:flex-start}.dashboard-heading h1{font-size:30px}.stats-row{gap:10px}.stat-card{padding:15px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.admin-product{grid-template-columns:56px minmax(0,1fr)}.admin-product img,.admin-product .mini-placeholder{width:56px;height:56px}.item-actions{grid-column:1/-1;justify-content:flex-start}.list-heading{align-items:flex-start}.editor-card,.list-card{padding:20px}}
+
+/* =========================================================
+   DULCES ANGIE - PANEL DE ADMINISTRACIÓN
+   Autenticación y permisos mediante Supabase.
+   ========================================================= */
+
+(() => {
+  "use strict";
+
+  const cfg = window.DULCES_ANGIE_SUPABASE || {};
+
+  const configured =
+    typeof cfg.url === "string" &&
+    cfg.url.startsWith("https://") &&
+    typeof cfg.anonKey === "string" &&
+    cfg.anonKey.trim().length > 0 &&
+    !cfg.anonKey.includes("PEGÁ_ACÁ") &&
+    !cfg.anonKey.includes("TU-ANON-KEY") &&
+    !cfg.url.includes("TU-PROYECTO");
+
+  const client =
+    configured &&
+    window.supabase &&
+    typeof window.supabase.createClient === "function"
+      ? window.supabase.createClient(cfg.url, cfg.anonKey, {
+          auth: {
+            persistSession: true,
+            autoRefreshToken: true,
+            detectSessionInUrl: true
+          }
+        })
+      : null;
+
+  const $ = (id) => document.getElementById(id);
+
+  const loginView = $("loginView");
+  const dashboardView = $("dashboardView");
+  const setupWarning = $("setupWarning");
+
+  let currentUser = null;
+  let products = [];
+  let editingImageUrl = "";
+  let checkingSession = false;
+
+  /* ---------- Mensajes y vistas ---------- */
+
+  function message(id, text, isError = false) {
+    const el = $(id);
+
+    if (!el) {
+      console.warn("No se encontró el elemento:", id, text);
+      return;
+    }
+
+    el.textContent = text;
+    el.style.color = isError ? "#b42358" : "#287746";
+  }
+
+  function showLogin() {
+    loginView?.classList.remove("hidden");
+    dashboardView?.classList.add("hidden");
+  }
+
+  function showDashboard() {
+    loginView?.classList.add("hidden");
+    dashboardView?.classList.remove("hidden");
+  }
+
+  function showSetupError(text) {
+    if (loginView) loginView.classList.add("hidden");
+
+    if (setupWarning) {
+      setupWarning.classList.remove("hidden");
+      setupWarning.textContent = text;
+    }
+  }
+
+  function ars(value) {
+    if (value === null || value === "") return "Consultar";
+
+    const number = Number(value);
+
+    if (!Number.isFinite(number)) return "Consultar";
+
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      maximumFractionDigits: 2
+    }).format(number);
+  }
+
+  function escapeHtml(value = "") {
+    return String(value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  function showLoginError(error) {
+    console.error("Error de inicio de sesión:", error);
+
+    const detail = error?.message || "Error desconocido.";
+
+    message(
+      "loginMessage",
+      "No se pudo iniciar sesión: " + detail,
+      true
+    );
+  }
+
+  /* ---------- Comprobación de administrador ---------- */
+
+  async function verifyAndRenderSession() {
+    if (!client || checkingSession) return;
+
+    checkingSession = true;
+
+    try {
+      const { data, error } = await client.auth.getSession();
+
+      if (error) throw error;
+
+      const session = data?.session;
+
+      if (!session) {
+        currentUser = null;
+        showLogin();
+        return;
+      }
+
+      currentUser = session.user;
+
+      const { data: admin, error: adminError } = await client
+        .from("admin_users")
+        .select("user_id")
+        .eq("user_id", currentUser.id)
+        .maybeSingle();
+
+      if (adminError) {
+        console.error("Error comprobando admin_users:", adminError);
+
+        await client.auth.signOut();
+        currentUser = null;
+        showLogin();
+
+        message(
+          "loginMessage",
+          "No se pudieron comprobar los permisos: " +
+            adminError.message,
+          true
+        );
+
+        return;
+      }
+
+      if (!admin) {
+        await client.auth.signOut();
+        currentUser = null;
+        showLogin();
+
+        message(
+          "loginMessage",
+          "Tu cuenta inició sesión, pero no está autorizada como administradora.",
+          true
+        );
+
+        return;
+      }
+
+      showDashboard();
+      await loadAdminProducts();
+
+    } catch (error) {
+      console.error("Error verificando la sesión:", error);
+
+      showLogin();
+
+      message(
+        "loginMessage",
+        "No se pudo verificar la sesión: " +
+          (error.message || "Error desconocido."),
+        true
+      );
+
+    } finally {
+      checkingSession = false;
+    }
+  }
+
+  /* ---------- Inicio de sesión ---------- */
+
+  $("loginForm")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!client) {
+      showSetupError(
+        "Supabase no está configurado. Revisá supabase-config.js, " +
+        "la clave pública y que la biblioteca de Supabase esté cargada."
+      );
+      return;
+    }
+
+    const email = $("email")?.value.trim();
+    const password = $("password")?.value;
+
+    if (!email || !password) {
+      message(
+        "loginMessage",
+        "Ingresá tu correo y tu contraseña.",
+        true
+      );
+      return;
+    }
+
+    const submitButton = $("loginForm").querySelector(
+      'button[type="submit"], button:not([type])'
+    );
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Verificando...";
+    }
+
+    message("loginMessage", "Conectando con Supabase...");
+
+    try {
+      const { data, error } = await client.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        showLoginError(error);
+        return;
+      }
+
+      if (!data?.session) {
+        message(
+          "loginMessage",
+          "Supabase no devolvió una sesión. Revisá la configuración del proveedor Email.",
+          true
+        );
+        return;
+      }
+
+      await verifyAndRenderSession();
+
+    } catch (error) {
+      showLoginError(error);
+
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Iniciar sesión";
+      }
+    }
+  });
+
+  /* ---------- Cierre de sesión ---------- */
+
+  $("logoutBtn")?.addEventListener("click", async () => {
+    if (!client) return;
+
+    try {
+      const { error } = await client.auth.signOut();
+
+      if (error) throw error;
+
+      currentUser = null;
+      products = [];
+      showLogin();
+
+    } catch (error) {
+      console.error("Error cerrando sesión:", error);
+
+      message(
+        "loginMessage",
+        "No se pudo cerrar la sesión: " + error.message,
+        true
+      );
+    }
+  });
+
+  if (client) {
+    client.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_OUT") {
+        currentUser = null;
+        showLogin();
+      }
+    });
+  }
+
+  /* ---------- Cargar productos ---------- */
+
+  async function loadAdminProducts() {
+    if (!client || !currentUser) return;
+
+    const host = $("adminProductList");
+
+    if (host) {
+      host.innerHTML =
+        '<p class="muted">Cargando productos...</p>';
+    }
+
+    try {
+      const { data, error } = await client
+        .from("products")
+        .select("*")
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+
+      products = data || [];
+
+      const productCount = $("productCount");
+      const pricedCount = $("pricedCount");
+
+      if (productCount) {
+        productCount.textContent = products.filter(
+          (product) => product.is_active
+        ).length;
+      }
+
+      if (pricedCount) {
+        pricedCount.textContent = products.filter(
+          (product) =>
+            product.price !== null &&
+            product.price !== ""
+        ).length;
+      }
+
+      renderAdminList();
+
+    } catch (error) {
+      console.error("Error cargando productos:", error);
+
+      if (host) {
+        host.innerHTML =
+          '<p class="muted">No se pudo cargar el catálogo: ' +
+          escapeHtml(error.message) +
+          "</p>";
+      }
+    }
+  }
+
+  /* ---------- Mostrar lista de productos ---------- */
+
+  function renderAdminList() {
+    const host = $("adminProductList");
+
+    if (!host) return;
+
+    if (!products.length) {
+      host.innerHTML =
+        '<p class="empty-list">Todavía no hay productos. ¡Agregá el primero! 💗</p>';
+      return;
+    }
+
+    host.innerHTML = products.map((product) => {
+      const image = product.image_url
+        ? `<img src="${escapeHtml(product.image_url)}" alt="${escapeHtml(product.name)}">`
+        : '<div class="mini-placeholder">🎁</div>';
+
+      const status = product.is_active
+        ? '<span class="status-pill">Publicado</span>'
+        : '<span class="status-pill off">Oculto</span>';
+
+      return `
+        <article class="admin-product">
+          <div>${image}</div>
+
+          <div>
+            <h3>
+              ${escapeHtml(product.name)}
+              ${status}
+            </h3>
+
+            <p>${escapeHtml(product.description || "Sin descripción")}</p>
+
+            <span class="item-price">${ars(product.price)}</span>
+          </div>
+
+          <div class="item-actions">
+            <button type="button" class="outline-btn" data-edit="${escapeHtml(product.id)}">
+              Editar
+            </button>
+
+            <button type="button" class="outline-btn" data-toggle="${escapeHtml(product.id)}">
+              ${product.is_active ? "Ocultar" : "Publicar"}
+            </button>
+
+            <button type="button" class="outline-btn" data-delete="${escapeHtml(product.id)}">
+              Eliminar
+            </button>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+    host.querySelectorAll("[data-edit]").forEach((button) => {
+      button.addEventListener("click", () => {
+        editProduct(button.dataset.edit);
+      });
+    });
+
+    host.querySelectorAll("[data-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        toggleProduct(button.dataset.toggle);
+      });
+    });
+
+    host.querySelectorAll("[data-delete]").forEach((button) => {
+      button.addEventListener("click", () => {
+        deleteProduct(button.dataset.delete);
+      });
+    });
+  }
+
+  /* ---------- Editar producto ---------- */
+
+  function editProduct(id) {
+    const product = products.find((item) => item.id === id);
+
+    if (!product) return;
+
+    $("productId").value = product.id;
+    $("productName").value = product.name;
+    $("productPrice").value = product.price ?? "";
+    $("productDescription").value = product.description || "";
+    $("productBadge").value = product.badge || "";
+    $("productActive").checked = Boolean(product.is_active);
+    $("productImage").value = "";
+
+    editingImageUrl = product.image_url || "";
+
+    $("currentImage").innerHTML = editingImageUrl
+      ? `<img src="${escapeHtml(editingImageUrl)}" alt="Foto actual"><small>Foto actual</small>`
+      : "<small>No hay foto cargada.</small>";
+
+    $("formTitle").textContent = "Editar producto";
+    $("saveProductBtn").textContent = "Guardar cambios";
+    $("cancelEditBtn").classList.remove("hidden");
+
+    message("productMessage", "");
+
+    $("productForm").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+  /* ---------- Limpiar formulario ---------- */
+
+  function resetForm() {
+    $("productForm")?.reset();
+
+    if ($("productId")) $("productId").value = "";
+
+    if ($("productActive")) {
+      $("productActive").checked = true;
+    }
+
+    if ($("formTitle")) {
+      $("formTitle").textContent = "Agregar un producto";
+    }
+
+    if ($("saveProductBtn")) {
+      $("saveProductBtn").textContent = "Guardar y publicar";
+    }
+
+    $("cancelEditBtn")?.classList.add("hidden");
+
+    if ($("currentImage")) {
+      $("currentImage").innerHTML = "";
+    }
+
+    editingImageUrl = "";
+    message("productMessage", "");
+  }
+
+  $("cancelEditBtn")?.addEventListener("click", resetForm);
+
+  /* ---------- Subir imagen ---------- */
+
+  async function uploadImage(file) {
+    if (!file) return editingImageUrl;
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error("La foto debe ser JPG, PNG o WebP.");
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      throw new Error("La foto supera los 5 MB.");
+    }
+
+    if (!currentUser) {
+      throw new Error("No hay una sesión de administrador activa.");
+    }
+
+    const extension = file.type === "image/png"
+      ? "png"
+      : file.type === "image/webp"
+        ? "webp"
+        : "jpg";
+
+    const path =
+      `${currentUser.id}/${crypto.randomUUID()}.${extension}`;
+
+    const { error } = await client.storage
+      .from("product-images")
+      .upload(path, file, {
+        upsert: false,
+        contentType: file.type
+      });
+
+    if (error) {
+      throw new Error(
+        "No se pudo subir la foto: " + error.message
+      );
+    }
+
+    const { data } = client.storage
+      .from("product-images")
+      .getPublicUrl(path);
+
+    return data.publicUrl;
+  }
+
+  /* ---------- Guardar producto ---------- */
+
+  $("productForm")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!client || !currentUser) {
+      message(
+        "productMessage",
+        "La sesión no está activa. Volvé a iniciar sesión.",
+        true
+      );
+      return;
+    }
+
+    const id = $("productId").value;
+    const name = $("productName").value.trim();
+    const priceRaw = $("productPrice").value;
+    const price = priceRaw === "" ? null : Number(priceRaw);
+
+    if (!name) {
+      message("productMessage", "El nombre es obligatorio.", true);
+      return;
+    }
+
+    if (
+      price !== null &&
+      (!Number.isFinite(price) || price < 0)
+    ) {
+      message("productMessage", "Ingresá un precio válido.", true);
+      return;
+    }
+
+    const button = $("saveProductBtn");
+    button.disabled = true;
+    button.textContent = "Guardando...";
+
+    try {
+      const file = $("productImage").files[0];
+      const image_url = await uploadImage(file);
+
+      const payload = {
+        name,
+        price,
+        description: $("productDescription").value.trim(),
+        badge: $("productBadge").value.trim(),
+        image_url,
+        is_active: $("productActive").checked,
+        updated_at: new Date().toISOString()
+      };
+
+      let result;
+
+      if (id) {
+        result = await client
+          .from("products")
+          .update(payload)
+          .eq("id", id)
+          .select()
+          .maybeSingle();
+      } else {
+        result = await client
+          .from("products")
+          .insert({
+            ...payload,
+            sort_order: products.length
+          })
+          .select()
+          .single();
+      }
+
+      if (result.error) throw result.error;
+
+      if (!result.data) {
+        throw new Error(
+          "No se confirmó el guardado. Revisá los permisos RLS de Supabase."
+        );
+      }
+
+      resetForm();
+      message("productMessage", "¡Producto guardado correctamente!");
+
+      await loadAdminProducts();
+
+    } catch (error) {
+      console.error("Error guardando producto:", error);
+
+      message(
+        "productMessage",
+        error.message || "Ocurrió un error al guardar.",
+        true
+      );
+
+    } finally {
+      button.disabled = false;
+      button.textContent = $("productId").value
+        ? "Guardar cambios"
+        : "Guardar y publicar";
+    }
+  });
+
+  /* ---------- Publicar u ocultar ---------- */
+
+  async function toggleProduct(id) {
+    if (!client || !currentUser) return;
+
+    const product = products.find((item) => item.id === id);
+
+    if (!product) return;
+
+    try {
+      const { data, error } = await client
+        .from("products")
+        .update({
+          is_active: !product.is_active,
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", id)
+        .select()
+        .maybeSingle();
+
+      if (error) throw error;
+
+      if (!data) {
+        throw new Error(
+          "No se modificó el producto. Revisá las políticas RLS."
+        );
+      }
+
+      await loadAdminProducts();
+
+    } catch (error) {
+      console.error("Error cambiando publicación:", error);
+      alert("No se pudo cambiar el estado: " + error.message);
+    }
+  }
+
+  /* ---------- Eliminar producto ---------- */
+
+  async function deleteProduct(id) {
+    if (!client || !currentUser) return;
+
+    const product = products.find((item) => item.id === id);
+
+    if (!product) return;
+
+    const confirmed = window.confirm(
+      `¿Seguro que querés eliminar "${product.name}"? Esta acción no se puede deshacer.`
+    );
+
+    if (!confirmed) return;
+
+    try {
+      const { data, error } = await client
+        .from("products")
+        .delete()
+        .eq("id", id)
+        .select()
+        .maybeSingle();
+
+      if (error) throw error;
+
+      if (!data) {
+        throw new Error(
+          "No se eliminó el producto. Revisá las políticas RLS."
+        );
+      }
+
+      if ($("productId")?.value === id) {
+        resetForm();
+      }
+
+      await loadAdminProducts();
+
+    } catch (error) {
+      console.error("Error eliminando producto:", error);
+      alert("No se pudo eliminar el producto: " + error.message);
+    }
+  }
+
+  /* ---------- Botón actualizar catálogo ---------- */
+
+  $("refreshBtn")?.addEventListener("click", loadAdminProducts);
+
+  /* ---------- Inicialización ---------- */
+
+  if (!client) {
+    showSetupError(
+      "No se pudo conectar con Supabase. Verificá que supabase-config.js " +
+      "tenga la URL y la clave pública correctas, y que la biblioteca " +
+      "de Supabase se cargue antes de admin.js."
+    );
+  } else {
+    verifyAndRenderSession();
+  }
+})();
