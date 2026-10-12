@@ -1,17 +1,19 @@
-# Dulces Angie - Página web
+CAMBIOS INCLUIDOS EN ESTA VERSIÓN
+--------------------------------
+- Cada producto de la tienda ahora tiene los botones "Especificaciones",
+  "Consultar" y "Pedir".
+- "Especificaciones" abre una ventana con foto, nombre, descripción, precio
+  y acceso a WhatsApp.
+- "Consultar" y "Pedir" preparan un mensaje de WhatsApp con el producto.
+- El catálogo sigue escuchando cambios de Supabase Realtime y además consulta
+  periódicamente el catálogo (cada 15 segundos) mientras la pestaña está visible.
+  Esto sirve como respaldo si Realtime no está habilitado.
+- Se conservó el diseño, los archivos de administración y la configuración actual.
 
-Página web inspirada en el perfil de Instagram de Dulces Angie.
-
-## Archivos
-- index.html
-- style.css
-- app.js
-
-## Antes de publicar
-1. Abrí `app.js`.
-2. Buscá `const WHATSAPP`.
-3. Reemplazá `5493815145977` por el número real de WhatsApp.
-4. Podés reemplazar las ilustraciones de ejemplo por fotos reales de los productos.
-5. Subí los tres archivos a GitHub Pages, Netlify, Vercel o el hosting que uses.
-
-La página es responsive para celular, tablet y PC.
+IMPORTANTE
+----------
+Para que los cambios se compartan entre todos los visitantes, el panel y la
+tienda deben usar el mismo proyecto Supabase, y las tablas/políticas deben estar
+configuradas ejecutando supabase-setup.sql. El refresco de respaldo puede tardar
+hasta unos 15 segundos. Si el navegador mantiene una copia antigua, hacé una
+recarga forzada (Ctrl+F5) una sola vez después de publicar.
