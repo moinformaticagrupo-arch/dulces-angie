@@ -377,3 +377,39 @@ footer strong{letter-spacing:-.3px}
 .catalog-image img{transition:transform .5s ease}
 .product-card:hover .catalog-image img{transform:scale(1.04)}
 .products-loading{grid-column:1/-1;text-align:center;color:var(--muted);padding:28px}
+
+
+/* Acciones de cada producto */
+.product-bottom{gap:12px;align-items:flex-start;flex-wrap:wrap}
+.product-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}
+.product-actions .order-btn{font:inherit;font-size:12px;padding:9px 12px;white-space:nowrap}
+.product-actions .specs-btn{background:#fff0f7}
+.product-actions .consult-btn{background:#fce4ef}
+.product-actions .order-btn:focus-visible,
+.product-modal button:focus-visible{outline:3px solid #b84d82;outline-offset:3px}
+
+/* Modal de especificaciones */
+body.modal-open{overflow:hidden}
+.product-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:20px}
+.product-modal.is-open{display:flex}
+.product-modal-backdrop{position:absolute;inset:0;background:rgba(39,20,31,.65);backdrop-filter:blur(4px)}
+.product-modal-card{position:relative;z-index:1;width:min(760px,100%);max-height:90vh;overflow:auto;background:#fffafc;border:1px solid #f3d6e3;border-radius:24px;box-shadow:0 24px 80px rgba(34,12,24,.3);padding:24px}
+.product-modal-close{position:absolute;right:15px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:#fce4ef;color:#6b304d;font-size:28px;line-height:1;cursor:pointer}
+.product-modal-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:25px;align-items:center;padding-top:16px}
+.product-modal-image{min-height:240px;aspect-ratio:1/1;border-radius:18px;background:linear-gradient(135deg,#fff0f7,#fce4ef);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:70px}
+.product-modal-image img{width:100%;height:100%;object-fit:cover}
+.product-modal-badge{display:inline-block;margin:0 0 8px;padding:5px 11px;border-radius:99px;background:#fce4ef;color:#873f61;font-size:12px;font-weight:700}
+.product-modal-info h2{font-family:"Playfair Display",serif;font-size:clamp(25px,4vw,34px);line-height:1.15;color:#4e3541;margin:5px 0 12px}
+.product-modal-description{color:var(--muted);line-height:1.65;white-space:pre-wrap}
+.product-modal-price{font-size:19px;font-weight:800;color:var(--pink-dark);margin:18px 0}
+.product-modal-consult{border:0;cursor:pointer;padding:12px 18px}
+@media(max-width:600px){
+ .product-actions{width:100%;justify-content:flex-start}
+ .product-actions .order-btn{flex:1 1 auto}
+ .product-modal{padding:12px}
+ .product-modal-card{padding:20px 16px;border-radius:18px}
+ .product-modal-content{grid-template-columns:1fr;gap:16px}
+ .product-modal-image{min-height:180px;max-height:300px}
+ .product-modal-info h2{padding-right:32px}
+ .product-modal-consult{width:100%}
+}
