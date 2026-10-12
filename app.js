@@ -56,6 +56,85 @@ function whatsappLink(message = DEFAULT_MESSAGE) {
   );
 }
 
+// Abrir WhatsApp en una pestaña nueva para no perder la tienda.
+function openWhatsApp(message) {
+  const url = whatsappLink(message);
+  const opened = window.open(url, "_blank", "noopener,noreferrer");
+  if (!opened) window.location.href = url;
+}
+
+// Ventana de detalles creada en el momento, sin modificar el HTML principal.
+function openProductDetails(product) {
+  let modal = document.getElementById("productDetailsModal");
+
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "productDetailsModal";
+    modal.className = "product-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "productModalTitle");
+    modal.innerHTML = `
+      <div class="product-modal-backdrop" data-close-modal="true"></div>
+      <section class="product-modal-card">
+        <button type="button" class="product-modal-close" aria-label="Cerrar detalles" data-close-modal="true">×</button>
+        <div class="product-modal-content">
+          <div class="product-modal-image"></div>
+          <div class="product-modal-info">
+            <p class="product-modal-badge"></p>
+            <h2 id="productModalTitle"></h2>
+            <p class="product-modal-description"></p>
+            <p class="product-modal-price"></p>
+            <button type="button" class="order-btn product-modal-consult">Consultar por WhatsApp</button>
+          </div>
+        </div>
+      </section>`;
+    document.body.appendChild(modal);
+
+    modal.addEventListener("click", event => {
+      if (event.target.closest("[data-close-modal='true']")) closeProductDetails();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeProductDetails();
+    });
+  }
+
+  const imageHost = modal.querySelector(".product-modal-image");
+  imageHost.replaceChildren();
+  if (isValidImageURL(product.image_url)) {
+    const image = document.createElement("img");
+    image.src = product.image_url;
+    image.alt = product.name || "Producto";
+    image.loading = "eager";
+    imageHost.appendChild(image);
+  } else {
+    imageHost.textContent = "🎁";
+  }
+
+  modal.querySelector(".product-modal-badge").textContent = product.badge || "";
+  modal.querySelector(".product-modal-badge").hidden = !product.badge;
+  modal.querySelector("#productModalTitle").textContent = product.name || "Producto";
+  modal.querySelector(".product-modal-description").textContent =
+    product.description || "Una creación hecha con amor para sorprender.";
+  modal.querySelector(".product-modal-price").textContent =
+    hasPrice(product.price) ? money(product.price) : "Precio: consultar";
+
+  modal.querySelector(".product-modal-consult").onclick = () => {
+    const priceMessage = hasPrice(product.price) ? ` El precio publicado es ${money(product.price)}.` : " ¿Me pasás el precio?";
+    openWhatsApp(`Hola Angie! 💗 Quería consultar por "${product.name}".${priceMessage}`);
+  };
+
+  modal.classList.add("is-open");
+  document.body.classList.add("modal-open");
+  modal.querySelector(".product-modal-close").focus();
+}
+
+function closeProductDetails() {
+  const modal = document.getElementById("productDetailsModal");
+  if (modal) modal.classList.remove("is-open");
+  document.body.classList.remove("modal-open");
+}
+
 // ---------------------------------------------------------
 // 4. UTILIDADES
 // ---------------------------------------------------------
@@ -242,7 +321,7 @@ function createProductCard(product, index) {
     product.description ||
     "Una creación hecha con amor para sorprender.";
 
-  // Precio y botón
+  // Precio y acciones del producto
   const bottom = document.createElement("div");
   bottom.className = "product-bottom";
 
@@ -252,28 +331,44 @@ function createProductCard(product, index) {
     ? money(product.price)
     : "Consultar";
 
-  const button = document.createElement("button");
-  button.className = "order-btn";
-  button.type = "button";
-  button.textContent = "Pedir";
+  const actions = document.createElement("div");
+  actions.className = "product-actions";
 
-  // Abrir WhatsApp con el producto seleccionado
-  button.addEventListener("click", () => {
+  const specsButton = document.createElement("button");
+  specsButton.className = "order-btn specs-btn";
+  specsButton.type = "button";
+  specsButton.textContent = "Especificaciones";
+  specsButton.setAttribute("aria-label", `Ver especificaciones de ${product.name || "producto"}`);
+  specsButton.addEventListener("click", () => openProductDetails(product));
+
+  const consultButton = document.createElement("button");
+  consultButton.className = "order-btn consult-btn";
+  consultButton.type = "button";
+  consultButton.textContent = "Consultar";
+  consultButton.addEventListener("click", () => {
+    const priceMessage = hasPrice(product.price)
+      ? ` Veo que el precio publicado es ${money(product.price)}.`
+      : " ¿Me pasás el precio y más información?";
+    openWhatsApp(
+      `Hola Angie! 💗 Quería consultar por "${product.name}".${priceMessage}`
+    );
+  });
+
+  const orderButton = document.createElement("button");
+  orderButton.className = "order-btn";
+  orderButton.type = "button";
+  orderButton.textContent = "Pedir";
+  orderButton.addEventListener("click", () => {
     const priceMessage = hasPrice(product.price)
       ? ` El precio publicado es ${money(product.price)}.`
       : " ¿Me pasás información y precio?";
-
-    const message =
-      `Hola Angie! 💗 Quiero consultar por "${product.name}".` +
-      priceMessage;
-
-    window.location.href = whatsappLink(message);
+    openWhatsApp(`Hola Angie! 💗 Quiero pedir "${product.name}".${priceMessage}`);
   });
 
-  bottom.append(price, button);
+  actions.append(specsButton, consultButton, orderButton);
+  bottom.append(price, actions);
   info.append(title, description, bottom);
   article.append(imageContainer, info);
-
   return article;
 }
 
@@ -399,11 +494,20 @@ function subscribeToProductChanges() {
       }
     )
     .subscribe(status => {
-      console.info(
-        "Estado de sincronización:",
-        status
-      );
+      console.info("Estado de sincronización:", status);
     });
+
+  // Respaldo por si Realtime no está habilitado en el proyecto Supabase.
+  // Los cambios del panel aparecen aunque el visitante no recargue la página.
+  window.setInterval(() => {
+    if (document.visibilityState === "visible") loadProducts();
+  }, 15000);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") loadProducts();
+  });
+
+  window.addEventListener("focus", () => loadProducts());
 }
 
 // ---------------------------------------------------------
